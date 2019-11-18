@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
 import { Consumer } from '../../context';
 
@@ -9,7 +10,9 @@ class Contact extends Component {
     };
 
     onDeleteClick = (id, dispatch) => {
-        dispatch({ type: 'DELETE_CONTACT', payload: id });
+        axios
+            .delete(`http://localhost:3000/users/${id}`)
+            .then(_res => dispatch({ type: 'DELETE_CONTACT', payload: id }));
     };
 
     render() {
