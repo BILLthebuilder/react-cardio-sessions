@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'uuid';
 import Contact from './Contact';
 import { Consumer } from '../../context';
 
@@ -15,7 +16,7 @@ class Contacts extends Component {
                                 List
                             </h1>
                             {contacts.map(contact => (
-                                <Contact key={contact.id} contact={contact} />
+                                <Contact key={uuid()} contact={contact} />
                             ))}
                         </React.Fragment>
                     );
