@@ -9,10 +9,10 @@ class Contact extends Component {
         showContactInfo: false
     };
 
-    onDeleteClick = (id, dispatch) => {
-        axios
-            .delete(`http://localhost:3000/users/${id}`)
-            .then(_res => dispatch({ type: 'DELETE_CONTACT', payload: id }));
+    onDeleteClick = async (id, dispatch) => {
+        await axios.delete(`https://a026a8bf.ngrok.io/users/${id}`);
+
+        dispatch({ type: 'DELETE_CONTACT', payload: id });
     };
 
     render() {
