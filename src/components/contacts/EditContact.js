@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import uuid from 'uuid';
 import axios from 'axios';
 import { Consumer } from '../../context';
 import TextInputGroup from '../layout/TextInputGroup';
@@ -27,7 +26,7 @@ class EditContact extends Component {
 
     onChange = e => this.setState({ [e.target.name]: e.target.value });
 
-    formSubmit = (dispatch, e) => {
+    formSubmit = async (dispatch, e) => {
         e.preventDefault();
         const { name, email, phone } = this.state;
 
@@ -46,6 +45,18 @@ class EditContact extends Component {
             this.setState({ errors: { phone: 'Phone is must not be empty' } });
             return;
         }
+
+        const updateContact = {
+            name,
+            email,
+            phone
+        };
+        const { id } = this.props.match.params;
+
+        const res = axios.put(`  https://jsonplaceholder.typicode.com/users/${id}`, updateContact);
+
+        dispatch({ type: 'UPDATE_CONTACT', payload: res.data });
+
         // Clear State
         this.setState({
             name: '',
