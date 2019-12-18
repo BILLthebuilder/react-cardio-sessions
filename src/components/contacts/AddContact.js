@@ -20,17 +20,17 @@ class AddContact extends Component {
 
         // Error Checking
         if (name === '') {
-            this.setState({ errors: { name: 'Name is must not be empty' } });
+            this.setState({ errors: { name: 'Name must not be empty' } });
             return;
         }
 
         if (email === '') {
-            this.setState({ errors: { email: 'Email is must not be empty' } });
+            this.setState({ errors: { email: 'Email must not be empty' } });
             return;
         }
 
         if (phone === '') {
-            this.setState({ errors: { phone: 'Phone is must not be empty' } });
+            this.setState({ errors: { phone: 'Phone must not be empty' } });
             return;
         }
 
