@@ -1,4 +1,7 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable import/prefer-default-export */
+
+// Using the Context API to handle our global state
 import React, { Component } from 'react';
 import axios from 'axios';
 
@@ -35,7 +38,7 @@ export class Provider extends Component {
     };
 
     async componentDidMount() {
-        const res = await axios.get('https://a026a8bf.ngrok.io/users');
+        const res = await axios.get('http://localhost:3000/users');
         this.setState({
             contacts: res.data
         });
