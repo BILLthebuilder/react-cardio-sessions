@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 import { Consumer } from '../../context';
 
+// The Component for manipulating a single contact from the global state
 class Contact extends Component {
     state = {
         showContactInfo: false
     };
 
     onDeleteClick = async (id, dispatch) => {
-        await axios.delete(`https://a026a8bf.ngrok.io/users/${id}`);
+        await axios.delete(`http://localhost:3000/users/${id}`);
 
         dispatch({ type: 'DELETE_CONTACT', payload: id });
     };
@@ -34,12 +36,23 @@ class Contact extends Component {
                                         });
                                     }}
                                     className="fas fa-sort-down"
-                                ></i>
+                                />
                                 <i
                                     style={{ color: 'red', cursor: 'pointer', float: 'right' }}
                                     onClick={this.onDeleteClick.bind(this, id, dispatch)}
                                     className="fas fa-times"
-                                ></i>
+                                />
+                                <Link to={`contact/edit/${id}`}>
+                                    <i
+                                        className="fas fa-pencil-alt"
+                                        style={{
+                                            color: 'black',
+                                            cursor: 'pointer',
+                                            float: 'right',
+                                            marginRight: '1rem'
+                                        }}
+                                    ></i>
+                                </Link>
                             </h4>
                             {showContactInfo ? (
                                 <ul>
