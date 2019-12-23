@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import uuid from 'uuid';
 import axios from 'axios';
 import { Consumer } from '../../context';
 import TextInputGroup from '../layout/TextInputGroup';
@@ -14,7 +13,7 @@ class AddContact extends Component {
 
     onChange = e => this.setState({ [e.target.name]: e.target.value });
 
-    formSubmit = (dispatch, e) => {
+    formSubmit = async (dispatch, e) => {
         e.preventDefault();
         const { name, email, phone } = this.state;
 
@@ -40,11 +39,9 @@ class AddContact extends Component {
             phone
         };
 
-        axios.post('https://a026a8bf.ngrok.io/users', newContact).then(res => {
-            dispatch({ type: 'ADD_CONTACT', payload: newContact });
-            console.log(res.data);
-        });
-
+        const res = await axios.post('http://localhost:3000/users', newContact);
+        console.log(res.data);
+        dispatch({ type: 'ADD_CONTACT', payload: res.data });
         // Clear State
         this.setState({
             name: '',
