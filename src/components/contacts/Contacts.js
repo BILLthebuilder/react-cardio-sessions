@@ -3,6 +3,8 @@ import uuid from 'uuid';
 import Contact from './Contact';
 import { Consumer } from '../../context';
 
+/* A Component that loops through the contacts in the state and applies
+ the unique key to each and renders them to the DOM */
 class Contacts extends Component {
     render() {
         return (
