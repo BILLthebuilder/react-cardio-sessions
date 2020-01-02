@@ -4,7 +4,7 @@ Refreshing my react knowledge
 
 ## Note
 
-This app uses a fake rest api to manipulate the data. So, before getting started, make sure that you replace all refferences to `http://localhost:3000` with the correct url to your rest api. Visit [here](https://jsonplaceholder.typicode.com/) for more information on how to configure your fake rest api.
+This app uses a fake rest api to manipulate the data. So, before getting started, make sure that you replace all refferences to `https://jsonplaceholder.typicode.com` with the correct url to your rest api. Visit [here](https://jsonplaceholder.typicode.com/) for more information on how to configure your fake rest api.
 
 In the project directory, you can run:
 

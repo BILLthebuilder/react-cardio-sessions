@@ -39,7 +39,7 @@ class AddContact extends Component {
             phone
         };
 
-        const res = await axios.post('http://localhost:3000/users', newContact);
+        const res = await axios.post('https://jsonplaceholder.typicode.com/users', newContact);
         console.log(res.data);
         dispatch({ type: 'ADD_CONTACT', payload: res.data });
         // Clear State
